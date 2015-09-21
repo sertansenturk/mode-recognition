@@ -11,7 +11,7 @@ import os
 from extras import foldGeneration
 from extras import fileOperations as fo
 import numpy as np
-import ChordiaEstimation
+from ModeTonicEstimation import Chordia
 
 
 # In[2]:
@@ -24,9 +24,8 @@ modes = fo.getModeNames(data_dir)
 
 input_num = int(sys.argv[1])
 
-che = ChordiaEstimation.ChordiaEstimation(step_size=10, smooth_factor=15, 
-                                          chunk_size=120, threshold=0.5, 
-                                          overlap=0, frame_rate=128.0/44100)
+che = Chordia.Chordia(step_size=10, smooth_factor=15, chunk_size=120, 
+					threshold=0.5, overlap=0, frame_rate=128.0/44100)
 
 
 # In[3]:

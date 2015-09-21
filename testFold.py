@@ -11,8 +11,8 @@ import os
 from extras import foldGeneration
 from extras import fileOperations as fo
 import numpy as np
-import ChordiaEstimation
-import Evaluator as ev
+from ModeTonicEstimation import Chordia
+from ModeTonicEstimation import Evaluator as ev
 
 
 # In[2]:
@@ -26,9 +26,8 @@ experiments_dir = os.path.join(base_dir, 'experiments')
 modes = fo.getModeNames(data_dir)
 
 evaluator = ev.Evaluator()
-che = ChordiaEstimation.ChordiaEstimation(step_size=10, smooth_factor=15, 
-                                          chunk_size=120, threshold=0.5, 
-                                          overlap=0, frame_rate=128.0/44100)
+che = Chordia.Chordia(step_size=10, smooth_factor=15, chunk_size=120, 
+                      threshold=0.5, overlap=0, frame_rate=128.0/44100)
 
 
 # In[3]:
