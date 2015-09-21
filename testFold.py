@@ -6,7 +6,6 @@ sys.path.insert(0, '../ModeTonicEstimation/')
 
 import json
 import os
-from extras import foldGeneration
 from extras import fileOperations as fo
 import numpy as np
 from ModeTonicEstimation import Chordia
