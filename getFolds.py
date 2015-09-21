@@ -4,7 +4,7 @@
 # In[1]:
 
 import sys
-sys.path.insert(0, '../ModeTonicRecognition/')
+sys.path.insert(0, '../ModeTonicEstimation/')
 
 import json
 import os
