@@ -28,7 +28,7 @@ che = Chordia.Chordia(step_size=10, smooth_factor=15, chunk_size=120,
 
 # indexing
 n_exp = 20
-n_folds = 14
+n_folds = 12
 
 mode_idx = np.unravel_index(input_num, [n_exp, n_folds])
 
