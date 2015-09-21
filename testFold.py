@@ -14,7 +14,7 @@ from ModeTonicEstimation import Evaluator as ev
 
 
 # I/O
-input_num = int(sys.argv[1])
+input_num = int(sys.argv[1])-1
 
 base_dir = '../../experiments/raag-recognition/'
 data_dir = os.path.join(base_dir,'data')

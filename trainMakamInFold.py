@@ -16,7 +16,7 @@ data_dir = os.path.join(base_dir,'data')
 experiments_dir = os.path.join(base_dir, 'experiments')
 modes = fo.getModeNames(data_dir)
 
-input_num = int(sys.argv[1])
+input_num = int(sys.argv[1])-1
 
 che = Chordia.Chordia(step_size=10, smooth_factor=15, chunk_size=120, 
 					threshold=0.5, overlap=0, frame_rate=128.0/44100)
