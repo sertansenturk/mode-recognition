@@ -15,8 +15,8 @@
 #
 # Output/Error Text
 # ----------------
-#$ -o ./logs/makamRecogChordia_$JOB_ID.out
-#$ -e ./logs/makamRecogChordia_$JOB_ID.err
+#$ -o ./logs/testChordia_$JOB_ID.out
+#$ -e ./logs/testChordia_$JOB_ID.err
 #
 # Create an array job = !!!!!!number of audio in the target folder!!!!!!
 # ----------------
