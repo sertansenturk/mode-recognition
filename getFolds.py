@@ -54,7 +54,7 @@ for p, f, t, r in zip(pitch_paths, pitch_fname, tonic_paths, mode_labels):
 mode_idx = [modes.index(m) for m in [d['mode'] for d in data]]
 
 for nn in xrange(0,n_exp):
-    skf = cross_validation.StratifiedKFold(mode_idx, n_folds=n_folds)
+    skf = cross_validation.StratifiedKFold(mode_idx, k=n_folds)
 
     folds = dict()
     for ff, fold in enumerate(skf):
