@@ -53,7 +53,7 @@ for rec in makamTestFiles:
     rec['pitch'] = np.loadtxt(rec['file'])[:,1]
     res = che.estimate(rec['pitch'], mode_names=modes, mode_dir=trainFolder, 
                        est_mode=True, distance_method='bhat',
-                       metric='pcd', ref_freq=rec['tonic'], 
+                       metric='pcd', tonic_freq=rec['tonic'], 
                        equalSamplePerMode=True)[0]
 
     # evaluate
