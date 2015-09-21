@@ -20,7 +20,7 @@
 #
 # Create an array job = !!!!!!number of audio in the target folder!!!!!!
 # ----------------
-#$ -t 0-280:1
+#$ -t 1-240:1
 #
 # Send me a mail when processed and when finished:
 # ------------------------------------------------
