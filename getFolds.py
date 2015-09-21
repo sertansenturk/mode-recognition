@@ -5,7 +5,7 @@
 
 import sys
 sys.path.insert(0, '../ModeTonicEstimation/')
-
+sys.path.insert(0, '/usr/lib/pymodules/python2.7/sklearn/')
 import json
 import os
 from extras import foldGeneration
