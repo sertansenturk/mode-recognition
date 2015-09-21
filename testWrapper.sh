@@ -38,7 +38,7 @@ export LANG="en_US.utf8"
 module load python/2.7.5
 module load essentia/2.0.1
 
-python trainMakamInFold.ipynb ${SGE_TASK_ID}
+python trainMakamInFold.py ${SGE_TASK_ID}
 
 # Print job Done
 printf "Job $JOB_ID done at `date`\n"
