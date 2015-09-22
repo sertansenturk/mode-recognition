@@ -1,20 +1,15 @@
 
 # coding: utf-8
 
-# In[1]:
-
 import sys
 sys.path.insert(0, '../ModeTonicEstimation/')
-sys.path.insert(0, '/usr/lib/pymodules/python2.7/sklearn/')
+
 import json
 import os
 from extras import foldGeneration
 from extras import fileOperations as fo
 import numpy as np
 from sklearn import cross_validation
-
-
-# In[2]:
 
 # I/O
 base_dir = '../../experiments/raag-recognition/'
@@ -23,10 +18,7 @@ experiments_dir = os.path.join(base_dir, 'experiments')
 modes = fo.getModeNames(data_dir)
 
 n_exp = 20
-n_folds = 14
-
-
-# In[3]:
+n_folds = 12
 
 # get the data into appropriate format
 [pitch_paths, pitch_base, pitch_fname] = fo.getFileNamesInDir(data_dir, '.pitch')
@@ -36,10 +28,6 @@ for p in pitch_base:
     for r in modes:
         if r in p:
             mode_labels.append(r)
-            
-
-
-# In[4]:
 
 # make the data a single dictionary for housekeeping
 data = []
@@ -47,14 +35,12 @@ for p, f, t, r in zip(pitch_paths, pitch_fname, tonic_paths, mode_labels):
     data.append({'file':p, 'name':os.path.splitext(f)[0],
                'tonic':float(np.loadtxt(t)), 'mode':r})
 
-
-# In[5]:
-
-# create 20 stratified 14 fold 
+# create 20 stratified 12 fold 
 mode_idx = [modes.index(m) for m in [d['mode'] for d in data]]
 
 for nn in xrange(0,n_exp):
-    skf = cross_validation.StratifiedKFold(mode_idx, kls=n_folds)
+    skf = cross_validation.StratifiedKFold(mode_idx, n_folds=n_folds,
+        shuffle=True, random_state=nn)
 
     folds = dict()
     for ff, fold in enumerate(skf):
@@ -73,9 +59,3 @@ for nn in xrange(0,n_exp):
         json.dump(folds, f, indent=2)
     
     print "Created the folds for Experiment " + str(nn)
-
-
-# In[ ]:
-
-
-

@@ -28,13 +28,13 @@ che = Chordia.Chordia(step_size=10, smooth_factor=15, chunk_size=120,
 # indexing
 n_exp = 20
 n_folds = 12
-for input_num in xrange(0, 240):
+for input_num in range(0, 240):
   mode_idx = np.unravel_index(input_num, [n_exp, n_folds])
 
   trainFolder = os.path.join(experiments_dir, 'exp' + str(mode_idx[0]), 
                              'fold' + str(mode_idx[1]), 'train')
   resultFile = os.path.join(experiments_dir, 'exp' + str(mode_idx[0]), 
-                            'fold' + str(mode_idx[1]), 'results.json')
+                            'fold' + str(mode_idx[1]), 'resultsNoSample.json')
 
 
   # create load the raag from the experiment & fold corresponding to the input index
@@ -54,7 +54,7 @@ for input_num in xrange(0, 240):
       res = che.estimate(rec['pitch'], mode_names=modes, mode_dir=trainFolder, 
                          est_mode=True, distance_method='bhat',
                          metric='pcd', tonic_freq=rec['tonic'], 
-                         equalSamplePerMode=True)[0]
+                         equalSamplePerMode=False)[0]
 
       # evaluate
       results.append(evaluator.mode_evaluate(rec['file'], res, rec['mode']))
