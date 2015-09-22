@@ -15,7 +15,7 @@ from ModeTonicEstimation import Evaluator as ev
 # I/O
 #input_num = int(sys.argv[1])-1
 
-base_dir = '../../experiments/raag-recognition/'
+base_dir = '../../experiments/raga/'
 data_dir = os.path.join(base_dir,'data')
 experiments_dir = os.path.join(base_dir, 'experiments')
 modes = fo.getModeNames(data_dir)
@@ -27,7 +27,7 @@ che = Chordia.Chordia(step_size=10, smooth_factor=15, chunk_size=120,
 
 # indexing
 n_exp = 20
-n_folds = 12
+n_folds = 14
 for input_num in range(0, 240):
   mode_idx = np.unravel_index(input_num, [n_exp, n_folds])
 

@@ -10,7 +10,7 @@ import numpy as np
 from ModeTonicEstimation import Chordia
 
 # I/O
-base_dir = '../../experiments/raga/'
+base_dir = '../../experiments/raag-recognition/'
 data_dir = os.path.join(base_dir,'data')
 experiments_dir = os.path.join(base_dir, 'experiments')
 modes = fo.getModeNames(data_dir)
@@ -22,7 +22,7 @@ che = Chordia.Chordia(step_size=10, smooth_factor=15, chunk_size=120,
 
 # indexing
 n_exp = 20
-n_folds = 14
+n_folds = 12
 n_modes = len(modes)  # 10 raagas
 
 mode_idx = np.unravel_index(input_num, [n_exp, n_folds, n_modes])
