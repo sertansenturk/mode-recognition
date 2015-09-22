@@ -10,7 +10,7 @@ import numpy as np
 from ModeTonicEstimation import Chordia
 
 # I/O
-base_dir = '../../experiments/raag-recognition/'
+base_dir = '../../experiments/raga/'
 data_dir = os.path.join(base_dir,'data')
 experiments_dir = os.path.join(base_dir, 'experiments')
 modes = fo.getModeNames(data_dir)
