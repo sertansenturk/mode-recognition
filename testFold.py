@@ -27,14 +27,14 @@ che = Chordia.Chordia(step_size=10, smooth_factor=15, chunk_size=0,
 
 # indexing
 n_exp = 20
-n_folds = 14
+n_folds = 12
 for input_num in range(0, n_exp*n_folds):
   mode_idx = np.unravel_index(input_num, [n_exp, n_folds])
 
   trainFolder = os.path.join(experiments_dir, 'exp' + str(mode_idx[0]), 
                              'fold' + str(mode_idx[1]), 'train')
   resultFile = os.path.join(experiments_dir, 'exp' + str(mode_idx[0]), 
-                            'fold' + str(mode_idx[1]), 'resultsNoSample.json')
+                            'fold' + str(mode_idx[1]), 'results.json')
 
   if os.path.isfile(resultFile):
     print resultFile + ' exists!'
