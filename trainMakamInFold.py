@@ -27,7 +27,9 @@ input_num = int(sys.argv[1])-1
 
 for input_num in range(0, n_exp*n_folds*n_modes):
 
-	mode_idx = np.unravel_index(input_num, [n_exp, n_folds, n_modes])
+	[ex_idx, fo_idx, mode_idx] = np.unravel_index(input_num, [n_exp, n_folds, n_modes])
+	cur_mode = modes[mode_idx]
+	
 	# create load the raag from the experiment & fold corresponding to the input index
 	foldFile = os.path.join(experiments_dir, 'exp' + str(ex_idx), 'folds.json')
 	with open(foldFile) as f:
