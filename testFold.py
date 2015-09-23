@@ -56,7 +56,7 @@ for input_num in range(0, n_exp*n_folds):
         res = che.estimate(rec['pitch'], mode_names=modes, mode_dir=trainFolder, 
                            est_mode=True, distance_method='bhat',
                            metric='pcd', tonic_freq=rec['tonic'], 
-                           equalSamplePerMode=False)[0]
+                           equalSamplePerMode=False, k_param=1)[0]
 
         # evaluate
         results.append(evaluator.mode_evaluate(rec['file'], res, rec['mode']))
