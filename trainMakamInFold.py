@@ -14,7 +14,6 @@ base_dir = '../../experiments/raag-recognition/'
 data_dir = os.path.join(base_dir,'data')
 experiments_dir = os.path.join(base_dir, 'experiments')
 modes = fo.getModeNames(data_dir)
-print len(modes)
 
 che = Chordia.Chordia(step_size=10, smooth_factor=15, chunk_size=0, 
 					threshold=0.5, overlap=0, frame_rate=128.0/44100)
