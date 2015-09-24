@@ -41,6 +41,8 @@ makamTrain_dict = folds['fold'+str(fo_idx)]['train']
 
 train_savefolder = os.path.join(experiments_dir, 'exp' + str(ex_idx), 
                                 'fold' + str(fo_idx), 'train')
-model = che.train(cur_mode, file_list, tonic_list, metric='pcd', 
-                             save_dir = train_savefolder)
-print "Finished training: " + os.path.join(train_savefolder, cur_mode)
+
+if not os.path.isfile(os.path.join(train_savefolder,cur_mode+'.json')):
+	model = che.train(cur_mode, file_list, tonic_list, metric='pcd', 
+	                             save_dir = train_savefolder)
+	print "Finished training: " + os.path.join(train_savefolder, cur_mode)
